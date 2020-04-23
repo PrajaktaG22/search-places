@@ -69,7 +69,9 @@ export class LoginComponent implements OnInit {
     .then(res => {
       console.log('You are Successfully signed up!', res);
       this.msg = "Register Succsesful .";
-      this.isOpen = !this.isOpen 
+      this.isOpen =true;
+      this.isForgotPassword = false;
+      this.isRegister = false;
       this.db.list('users').push(form)
       })
       .catch(error => {
