@@ -1,0 +1,22 @@
+.main__body {
+    margin-top: 10%;
+    
+}
+
+.login__card {
+    padding: 30px;
+}
+.fb {
+    background-color: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background-color: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background-color: #dd4b39;
+    color: white;
+  }

@@ -1,0 +1,31 @@
+<div class="sildebarMenu">
+    <ul>
+        <li [ngClass]="{'active':selectedSideMenuItem === 1}">
+            <a href="javascript:;" (click)="$event.preventDefault();home();" >
+                <span class="icon"><img style="height: 40px; width: 40px;" src="../../assets/home.png" alt="icon"></span> HOME
+            </a>
+           
+        </li>
+        <li [ngClass]="{'active':selectedSideMenuItem === 2}">
+            <a href="javascript:;" (click)="$event.preventDefault();myPlaces();">
+                <span class="icon"><img style="height: 40px; width: 40px;" src="../../assets/location.png" alt="icon"></span> MY PLACE
+            </a>
+        </li>
+        <li [ngClass]="{'active':selectedSideMenuItem === 3}">
+            <a href="javascript:;" (click)="$event.preventDefault();profile();">
+                <span class="icon"><img  style="height: 40px; width: 40px;" src="../../assets/profile.png" alt="icon"></span> PROFILE
+            </a>
+        </li>
+        <li [ngClass]="{'active':selectedSideMenuItem === 4}" >
+            <a href="javascript:;" (click)="$event.preventDefault();signOut();">
+                <span class="icon"><img style="height: 40px; width: 40px;" src="../../assets/iconBacklog1.png" alt="icon"></span> SIGN OUT
+            </a>
+        </li>
+       
+       
+
+    </ul>
+</div>
+<div class="contentWrapper">
+    <router-outlet></router-outlet>
+</div>

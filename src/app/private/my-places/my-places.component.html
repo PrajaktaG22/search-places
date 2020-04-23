@@ -1,0 +1,69 @@
+<div class="row" style="padding:20px;">
+    <div class="row">
+      <span class="myPlace" > My Places</span>  
+    </div>
+
+    <div class="row" *ngIf="isEditPlace" style="padding:20px;">
+        <form [formGroup]="place_form" #formDirective="ngForm" (ngSubmit)="placeForm(formDirective)">
+            <div class="row ">
+                <mat-form-field class="col-md-4 example-full-width" appearance="outline">
+                    <mat-label>Place Name</mat-label>
+                    <input matInput placeholder="Place Name" [formControl]="formControls.name" required>
+                    <mat-error *ngIf="formControls.name.touched && formControls.name.errors?.required">
+                        Place Name is required!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-4 example-full-width" appearance="outline">
+                    <mat-label>Place Name</mat-label>
+                    <input matInput placeholder="Address" [formControl]="formControls.address" required>
+                    <mat-error *ngIf="formControls.address.touched && formControls.address.errors?.required">
+                        Address is required!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-4 example-full-width" appearance="outline">
+                    <mat-label>Opening Hours</mat-label>
+                    <input matInput placeholder="Opening hours" [formControl]="formControls.openingHours" required>
+                    <mat-error *ngIf="formControls.openingHours.touched && formControls.openingHours.errors?.required">
+                        Opening hours is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row" style="padding: 20px;">
+                <div class="col-md-2" style="padding-left: 15px; padding-top: 15px; padding-right: 15px;">
+                   
+                    <button *ngIf="isEditPlace" type="submit" class="btn btn-primary" type="submit">Update</button>
+                </div>
+                <div class="col-md-1" style="margin-left: 5px; margin-top: 8px; margin-right: 15px;">
+                    <button class="btn btn-default" type="reset" (click)="cancel()" style="padding: 5px 17px; background-color:#999999; color: black; border: none; display: inline-block; font-size: 21px;">Cancel</button>
+                </div>
+                <div class="col-md-9"></div>
+            </div>
+        </form>     
+    </div>
+    <div class=" col-md-12">
+        <div class="row">
+            <table style="  width:100% ; border-collapse:separate; border:solid transparent; border-spacing:0 15px; padding-left: 5px;padding-right: 22px;">
+                <tr style="background-color: #174A84; ">
+                    <th style="text-align: center;color:white; height: 35px;width: 20%;" class="thhead">Place Name</th>
+                    <th style="text-align: center;color:white;width: 25%;">Place Address</th>
+                    <th style="text-align: center;color:white ;width: 25%;">Place Opening Hours</th>
+                    <th style="text-align: center;color:white;width: 30%;">Action</th>
+                    
+                
+                </tr>
+                <tr style="background-color: white; padding-top: 5px;" *ngFor ='let place of myPlaces' >
+                    <td style="text-align: center;color:black;">{{place.name}}</td>
+                    <td style="text-align: center;color:black">{{place.address}}</td>
+                    <td style="text-align: center;color:black">{{place.openingHours}}</td>
+                    <td style="text-align: center;color:black" >
+                        <button mat-button color="primary" style="background-color:#174A84 ;color:white;margin-right: 10px;" (click)="editPlace(place);">Edit </button>
+                        <button mat-button color="primary" style="background-color:#174A84 ;color:white;" (click)="deletePlace(place.id);">Delete </button></td>
+                    
+                </tr>
+
+            </table>
+        
+        
+        </div>
+    </div>
+</div>

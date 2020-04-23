@@ -1,0 +1,93 @@
+<div class="main__body">
+    <div class="container">
+
+        <div class="login__page">
+            <div class="row">
+                <div class="col-md-4"></div>
+                   <div class="col-md-4" style=" border: 1px solid ;padding:30px;border-color: gray;">
+                    
+                            <label *ngIf="msg" style="padding: 13px;width: 100%;
+                            border: 1px solid #f1a8a8;">{{msg}}</label>
+                            <form *ngIf=isOpen (ngSubmit)="onLoginClicked(user)">
+                                <h2 style="text-align:center">Login Form</h2>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" [(ngModel)]=user.email name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" [(ngModel)]=user.password name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
+                                     Login
+                                    </button>
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-md-6" style="margin-bottom: 10px;"> 
+                                        <a type="buton" (click)=onClickRegister(); >
+                                        Register
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6"  style="margin-bottom: 10px;">
+                                        <a type="buton" (click)=onForgotPassword();>
+                                            Forgot Password
+                                        </a>
+                                    </div>    
+                                 </div>
+
+                            </form>
+
+                            <form *ngIf="isRegister" (ngSubmit)="onRegisterClicked(user)">
+                                <h2 style="text-align:center">Register Form</h2>
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
+                                     Register
+                                     </button>
+                                </div>
+                                <a type="buton" (click)=onLoginClick(); style="margin-bottom: 10px;float: right;">
+                                 Login
+                                 </a>
+                            </form>
+
+                            <form *ngIf="isForgotPassword" (ngSubmit)="forgotPassword(user)">
+                                <h2 style="text-align:center">Forgot Password Form</h2>
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                               
+                               
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
+                                     Send Email
+                                     </button>
+                                </div>
+                                <a type="buton" (click)=onLoginClick(); style="margin-bottom: 10px;float: right;">
+                                    Login
+                                    </a>
+                            </form>
+                        
+                    
+                </div>
+
+            </div>
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end container -->
+</div>

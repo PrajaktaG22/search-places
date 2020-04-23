@@ -1,0 +1,55 @@
+<div class="row" style="padding:20px;">
+ <div class="row">  
+    <span class="home">Home</span>
+  </div>
+  <div class="row"> 
+    <span style="padding: 20px;color:black">Search For Places Below</span>
+  </div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline"  >
+      <input type="text" placeholder="search for places" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" (keyup)="updated()"  >
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getSelectedPlace($event.option.value)">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+     
+    </mat-form-field>
+  </form>
+</div>
+<div class=" col-md-12" *ngIf="placeData.length >0">
+    <div class="row">
+        <table style="  width:100% ; border-collapse:separate; border:solid transparent; border-spacing:0 15px; padding-left: 5px;padding-right: 22px;">
+            <tr style="background-color: #174A84; ">
+                <th style="text-align: center;color:white; height: 35px;" class="thhead">Place Name</th>
+                <th style="text-align: center;color:white">Place Address</th>
+                <th style="text-align: center;color:white">Place Opening Hours</th>
+                <th style="text-align: center;color:white">Action</th>
+                
+               
+            </tr>
+            <tr style="background-color: white; padding-top: 5px;" *ngFor ='let place of placeData' >
+                <td style="text-align: center;color:black">{{place.name}}</td>
+                <td style="text-align: center;color:black">{{place.address}}</td>
+                <td style="text-align: center;color:black">{{place.openingHours}}</td>
+                <td style="text-align: center;color:black" >
+                  <button mat-button color="primary" style="background-color:#174A84 ;color:white" (click)="saveToCard(place);">Save To Card </button></td>
+              
+            </tr>
+
+        </table>
+      
+    
+    </div>
+  </div> 
+
+  <!-- <h1>Angular Google Maps with Places Search Example</h1>
+ 
+  <div class="form-group" style="padding: 20px;">
+    <label>Enter address</label>
+    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  </div>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+      (dragEnd)="markerDragEnd($event)"></agm-marker>
+  </agm-map> -->
